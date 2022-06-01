@@ -21,55 +21,13 @@ public class Main {
 
         for (Object participant : participants) {
             int maxRun = 0;
-            int maxJump = 0;
-
-            if (participant instanceof Cat) {
-                nameParticipant = ((Cat) participant).getName();
-                maxRun = ((Cat) participant).getRunDistance();
-                maxJump = ((Cat) participant).getJumpHeight();
-            }
-            if (participant instanceof Human) {
-                nameParticipant = ((Human) participant).getName();
-                maxRun = ((Human) participant).getRunDistance();
-                maxJump = ((Human) participant).getJumpHeight();
-            }
-            if (participant instanceof Robot) {
-                nameParticipant = ((Robot) participant).getName();
-                maxRun = ((Robot) participant).getRunDistance();
-                maxJump = ((Robot) participant).getJumpHeight();
-            }
-
-
-            for (int y = 0; y < obstacles.length; y++) {
-                int run = 0;
-                int height = 0;
-                if (obstacles[y] instanceof Treadmill) {
-                    nameObstacle = ((Treadmill) (obstacles[y])).getName();
-                    run = ((Treadmill) (obstacles[y])).getLength();
-                    if(run <= maxRun) {
-                        System.out.println(" Участник " + nameParticipant + " успешно преодолел препятсвие номер " +
-                                (y + 1));
-                        System.out.println(" ");
-                    } else {
-                        System.out.println(" Участник " + nameParticipant + " не смог преодолеть препятсвие номер " +
-                                (y + 1));
-                        System.out.println(" ");
-                    }
-                }
-                if (obstacles[y] instanceof Wall) {
-                    nameObstacle = String.valueOf(((Wall) (obstacles[y])).getHeight());
-                    height = ((Wall) (obstacles[y])).getHeight();
-                    if (height <= maxJump) {
-                        System.out.println(" Участник " + nameParticipant + " успешно преодолел препятсвие номер " +
-                                (y + 1));
-                        System.out.println(" ");
-                    }else{
-                        System.out.println(" Участник " + nameParticipant + " не смог преодолеть препятсвие номер " +
-                                (y + 1));
-                        System.out.println(" ");
-                    }
-                }
-            }
         }
     }
 }
+
+
+
+
+
+              
+            
