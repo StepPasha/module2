@@ -1,8 +1,10 @@
 package ru.gb.stepanov.hm2;
 
+import static java.lang.Integer.valueOf;
+
 public class Main {
     public static void main(String[] args) {
-        String[][] a = new String[][]{{"1", "2", "3", "4"}, {"3", "3", "1", "3"}, {"2", "2", "2", "2"}, {"3", "Два", "1", "2"}, {"2", "3"}};
+        String[][] a = new String[][]{{"1", "2", "Тридцать", "4"}, {"2", "2", "2", "3"}, {"2", "2", "2", "2"}, {"2", "2", "3", "2"}};
         try {
             int massive = massive(a);
             System.out.println("Массив задан верно!");
@@ -11,26 +13,34 @@ public class Main {
         } catch (MyArrayDataException e) {
             e.printStackTrace();
         }
-        System.out.println(" ");
+
     }
 
-    public static int massive(String[][] a) throws MyArraySizeException, MyArrayDataException {
-        int sum = 1;
-        if (a.length != 4) {
+
+    public static int massive(String[][] arr) throws MyArraySizeException, MyArrayDataException {
+        int sum = 0;
+        if (arr.length != 4) {
             throw new MyArraySizeException();
         }
-        for (int i = 0; i < a[i].length; i++) {
-            if (a[i].length != 4) {
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i].length != 4) {
                 throw new MyArraySizeException();
             }
-            for (int j = 0; j < a[i].length; j++) {
-                sum = sum + Integer.parseInt(a[i][j]);
+            for (int j = 0; j < arr[i].length; j++) {
+                try {
+                    sum += valueOf(arr[i][j]);
+                }
+                catch (NumberFormatException e) {
+                    throw new MyArrayDataException(e);
+                }
             }
 
         }
         return sum;
     }
+
 }
+
 
 
 
